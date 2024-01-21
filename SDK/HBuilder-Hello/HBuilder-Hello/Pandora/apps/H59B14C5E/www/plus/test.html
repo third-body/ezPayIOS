@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script>
+			// 上传图片操作
+			function uploadImage(cb, type = 'camera', ) {
+
+				if (type === 'camera') {
+					// 摄像头
+					var cmr = plus.camera.getCamera()
+					cmr.supportedImageFormats
+					cmr.captureImage(function(capturedFile) {
+						// 得到图片路径
+						readFile(capturedFile, function(blob) {
+							cb(blob)
+						})
+					}, function(err) {
+						// 失败
+						console.error(err)
+						cb(false)
+					}, {
+						crop: {
+							width: 200,
+							height: 200
+						},
+						filename: "_doc/camera/",
+						format: "png",
+						index: 1,
+						optimize: true,
+					})
+				} else {
+					// 相册
+					pickImage(function(path) {
+						if (path) {
+							readFile(path, function(blob) {
+								cb(blob)
+							})
+						} else {
+							cb(false)
+						}
+					})
+				}
+			}
+
+			// 选取图片
+			function pickImage(cb) {
+				plus.gallery.pick(function(path) {
+					cb(path)
+				}, function(err) {
+					console.error(err)
+					cb(false)
+				});
+			}
+
+			// 读取图片文件
+			function readFile(path, cb) {
+				plus.io.resolveLocalFileSystemURL(path, function(entry) {
+					var localUrl = entry.toLocalURL();
+					entry.file(function(evt) {
+						var reader = new plus.io.FileReader();
+						reader.readAsDataURL(evt);
+						reader.onloadend = function(e) {
+							// console.log(reader.result);
+							var blob = base64toBlob(reader.result, "UTF-8");
+							cb(blob)
+						}
+						//Base64转二进制
+						function base64toBlob(base64, type) {
+							// 将base64转为Unicode规则编码,切记需要将头部文件类型做截取
+							let bstr = atob(base64.substring(base64.indexOf(',') + 1), type),
+								n = bstr.length,
+								u8arr = new Uint8Array(n);
+							while (n--) {
+								u8arr[n] = bstr.charCodeAt(n) // 转换编码后才可以使用charCodeAt 找到Unicode编码
+							}
+							return new Blob([u8arr], {
+								type,
+							})
+						}
+					})
+				}, function(err) {
+					console.error(err)
+					cb(false)
+				})
+			}
+
+			document.addEventListener("plusready", function() {
+				plus.nativeUI.actionSheet({
+					title: "选择获取图片方式",
+					cancel: "取消",
+					buttons: [{
+						color: "#333",
+						title: "相机",
+					}, {
+						color: "#333",
+						title: "系统相册",
+					}]
+				}, function(e) {
+				})
+			})
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

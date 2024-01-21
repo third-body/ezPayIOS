@@ -1,0 +1,6 @@
+framework module BURelyFoundation {
+  umbrella header "BURelyFoundation.h"
+
+  export *
+  module * { export * }
+}
