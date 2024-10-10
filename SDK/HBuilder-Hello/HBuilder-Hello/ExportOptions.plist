@@ -2,25 +2,23 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>compileBitcode</key>
-	<false/>
 	<key>destination</key>
 	<string>export</string>
 	<key>method</key>
-	<string>development</string>
+	<string>debugging</string>
 	<key>provisioningProfiles</key>
 	<dict>
-		<key>com.joe.wepay</key>
-		<string>wepay</string>
+		<key>com.joe.wepay3</key>
+		<string>wepay3</string>
 	</dict>
 	<key>signingCertificate</key>
-	<string>Apple Development</string>
+	<string>B2487287F1CA0976B616E42D1601F24DF890123D</string>
 	<key>signingStyle</key>
 	<string>manual</string>
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
-	<string>8PW978QS7V</string>
+	<string>9PK39XPFFJ</string>
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
 </dict>
