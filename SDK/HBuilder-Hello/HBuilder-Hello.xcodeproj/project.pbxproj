@@ -966,7 +966,7 @@
 				ORGANIZATIONNAME = DCloud;
 				TargetAttributes = {
 					8EED6297198A1D13000A4449 = {
-						DevelopmentTeam = T3FXX73MAW;
+						DevelopmentTeam = D98MCM3544;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1166,7 +1166,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 000001;
-				DEVELOPMENT_TEAM = T3FXX73MAW;
+				DEVELOPMENT_TEAM = D98MCM3544;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1195,7 +1195,7 @@
 				);
 				MARKETING_VERSION = 1.2.7;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joe.wepay4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joe.vp.five;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1215,7 +1215,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 000001;
-				DEVELOPMENT_TEAM = T3FXX73MAW;
+				DEVELOPMENT_TEAM = D98MCM3544;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1244,7 +1244,7 @@
 				);
 				MARKETING_VERSION = 1.2.7;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.joe.wepay4;
+				PRODUCT_BUNDLE_IDENTIFIER = com.joe.vp.five;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
