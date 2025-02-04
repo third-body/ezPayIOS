@@ -8,19 +8,12 @@
 	<string>export</string>
 	<key>method</key>
 	<string>debugging</string>
-	<key>provisioningProfiles</key>
-	<dict>
-		<key>com.joe.wepay4</key>
-		<string>vp4</string>
-	</dict>
-	<key>signingCertificate</key>
-	<string>Apple Development</string>
 	<key>signingStyle</key>
-	<string>manual</string>
+	<string>automatic</string>
 	<key>stripSwiftSymbols</key>
 	<true/>
 	<key>teamID</key>
-	<string>T3FXX73MAW</string>
+	<string>D98MCM3544</string>
 	<key>thinning</key>
 	<string>&lt;none&gt;</string>
 </dict>
