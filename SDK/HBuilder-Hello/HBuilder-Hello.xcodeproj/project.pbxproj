@@ -966,7 +966,7 @@
 				ORGANIZATIONNAME = DCloud;
 				TargetAttributes = {
 					8EED6297198A1D13000A4449 = {
-						DevelopmentTeam = 6S7K3RY92Q;
+						DevelopmentTeam = J4YF24845D;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -1166,7 +1166,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 000001;
-				DEVELOPMENT_TEAM = 6S7K3RY92Q;
+				DEVELOPMENT_TEAM = J4YF24845D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1215,7 +1215,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 000001;
-				DEVELOPMENT_TEAM = 6S7K3RY92Q;
+				DEVELOPMENT_TEAM = J4YF24845D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
