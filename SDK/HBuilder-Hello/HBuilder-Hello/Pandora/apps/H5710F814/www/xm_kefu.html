@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线客服</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #MKEFU-INVITE-MSG {
+            height: 99.5% !important;
+        }
+    </style>
+    <script>
+
+        ; (function (x, i, ao, m, ei, j, s) {
+            x[m] = x[m] || function () { (x[m].ei = x[m].ei || []).push(arguments) };
+            j = i.createElement(ao), s = i.getElementsByTagName(ao)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            j.id = "MKEFU_WEBPLUGIN";
+            j.src = 'https://api01.fislin.win/js/mkefu.min.js'
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MKEFU');
+        _MKEFU('appId', 'b5c926937fda40e8aeff14bdf02e245c');
+        var isOpen = false;
+        let timer = setInterval(() => {
+            if (!isOpen) {
+                var btn = document.getElementById('MKEFU-INVITE-BTN')
+                try {
+                    btn.click();
+                    isOpen = true;
+                    clearInterval(timer)
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+        }, 100);
+    </script>
+</head>
+
+<body>
+    <h2>客服线加载中。。。</h2>
+</body>
+
+</html>

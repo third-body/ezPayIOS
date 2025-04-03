@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>在线客服</title>
+    <style>
+        body{
+            background: linear-gradient(to right, #05c057,#00e865 );
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: 20px auto;
+            margin-top: 65px;
+        }
+        .loader {
+            -webkit-animation: spin 1s linear infinite;
+                    animation: spin 1s linear infinite;
+            border: 3px solid #ddd;
+            border-top: 3px solid #42a5f5;
+            border-radius: 50%;
+            height: 75px;
+            width: 75px;
+        }
+
+        @-webkit-keyframes spin {
+            to {
+                border-top-color: #ec407a;
+                -webkit-transform: rotate(360deg);
+                        transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                border-top-color: #ec407a;
+                -webkit-transform: rotate(360deg);
+                        transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="loader"></div>
+    </div>
+    <p class="loading-text" style="padding: 0px 8px;">正在加载在线客服，请耐心等待...</p>
+</body>
+<script>
+
+    function loadKF(url){
+        (function (m, ei, q, i, a, j, s) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            j = ei.createElement(q),
+                s = ei.getElementsByTagName(q)[0];
+            j.async = true;
+            j.charset = 'UTF-8';
+            // j.src = 'https://static.meiqia.com/dist/meiqia.js';
+            j.src = url;
+            s.parentNode.insertBefore(j, s);
+        })(window, document, 'script', '_MEIQIA');
+
+        _MEIQIA('entId', '10c16addf17dabfb632b874265839d6c');
+        // 初始化成功时的回调
+        _MEIQIA('allSet', function(){
+            _MEIQIA('showPanel');
+            document.querySelector('.container').style.display = 'none';
+            document.querySelector('.loading-text').style.display = 'none';
+        });
+        _MEIQIA('languageLocal', 'true');
+    }
+
+    var ws = null;
+    function plusReady(){
+        ws = plus.webview.currentWebview();
+        if( ws.kfServiceUrl ){
+            loadKF(ws.kfServiceUrl);
+        }
+        if(ws.kfServiceBackupUrl){
+            var htmls = '<p style="padding: 0px 8px;margin-top: 45px;font-weight: 600;font-size:15px"><span style="font-weight: 600;">温馨提示：</span>若客服线无法正常加载，请点击使用</p><a style="font-weight: 600;font-size:15px;" href="'+ws.kfServiceBackupUrl+'">备用客服链接</a>'
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmls;
+            document.body.append(tempDiv);
+        }
+    }
+    if(window.plus){
+        plusReady();
+    }else{
+        document.addEventListener('plusready', plusReady, false);
+    }
+
+    function getUrlParams() {
+        var search = window.location.search;
+        var reg = /(?:\?|&)(.*?)=(.*?)(?=&|$)/g;
+        var result = {kfServiceBackupUrl:'',kfServiceUrl:''};
+        try{
+            search.replace(reg, function(match, key, value) {
+                result[key] = decodeURIComponent(value);
+            });
+        }catch (error) {
+            console.error(error);
+        }
+        return result;
+    }
+    var urlParams = getUrlParams();
+    if( urlParams.kfServiceUrl ){
+        loadKF(urlParams.kfServiceUrl);
+    }
+    //插入备用
+    window.onload= function(){
+        if( urlParams.kfServiceBackupUrl ){
+            var htmls = '<p style="padding: 0px 8px;margin-top: 45px;font-weight: 600;font-size:15px"><span style="font-weight: 600;">温馨提示：</span>若客服线无法正常加载，请点击使用</p><a style="font-weight: 600;font-size:15px;" href="'+urlParams.kfServiceBackupUrl+'">备用客服链接</a>'
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = htmls;
+            document.body.append(tempDiv);
+        }
+    }
+</script>
+</html>
